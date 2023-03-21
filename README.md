@@ -33,3 +33,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+### UI example of Joker Search
+![image](https://user-images.githubusercontent.com/69305400/226666647-a76e4c66-960c-4b10-91e4-4daf974ea7a5.png)
+
