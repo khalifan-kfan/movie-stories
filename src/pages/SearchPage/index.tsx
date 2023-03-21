@@ -8,6 +8,7 @@ import { setSearchLists, resetMovies } from "../../redux/Slices/movies";
 import Header from "../../components/header";
 import ProgressBar from "../../components/progressIndicator";
 import PlaceHolder from "../../assets/clapperboard.png";
+import Footer from "../../components/footer";
 
 const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 const SearchPage = () => {
@@ -78,18 +79,19 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="relative bg-gray-900  flex flex-col min-h-screen font-sans">
-      <Header />
+    <>
+    <Header />
+    <div className="relative bg-gray-900  flex flex-col min-h-[90vh] font-sans">
       <main className=" px-10 lg:px-19 md:px-[7rem] transition-all">
         <div
           className={`flex items-center mt-[2rem]  ${
             searchResults.length > 0
               ? "flex-col md:flex-row justify-between px-3"
               : "flex-col md:mt-[3rem]"
-          } text-[#fff] `}
+          } text-[#fff] transition-all duration-500 ease-in-out transform`}
         >
           <h1
-            className={`flex justify-center font-black  ${
+            className={`flex justify-center font-black transition-all duration-500 ease-in-out transform ${
               searchResults.length > 0
                 ? "text-[25px] md:text-[35px]"
                 : "text-[35px] md:text-[50px] "
@@ -98,7 +100,7 @@ const SearchPage = () => {
             Our stories 📽️
           </h1>
           {searchResults.length === 0 && (
-            <p className="text-[#f8e6e6] text-[20px]  md:text-[27px] text-center ">
+            <p className="text-[#f8e6e6] text-[20px] md:text-[27px] text-center ">
               Discover your next favorite movie with Movie Stories! &#128151;
             </p>
           )}
@@ -107,7 +109,7 @@ const SearchPage = () => {
               searchResults.length > 0
                 ? "w-[50%]"
                 : "w-[60%] mt-[30px] md:mt-[50px]"
-            } justify-center`}
+            } justify-center duration-500 ease-in-out transform `}
             onSubmit={handleSearchFormSubmit}
           >
             <div
@@ -141,7 +143,7 @@ const SearchPage = () => {
         </div>
         {searchTermErrorResponse === "" && searchResults.length > 0 && (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-5 sm:grid-cols-3 gap-2 mt-7">
+            <div className="grid transition-all duration-500 ease-in-out transform grid-cols-2 md:grid-cols-5 sm:grid-cols-3 gap-2 mt-7">
               {searchResults.map((result: any) => (
                 <Link
                   to={`/movie/${result.imdbID}`}
@@ -188,6 +190,7 @@ const SearchPage = () => {
           </div>
         )}
         {/* <Header /> */}
+        
       </footer>
       {progressIndicator && (
         <div className="flex z-20 items-center text-[#fff] justify-center rounded-md md:top-9 md:left-28 md:right-28  fixed h-full w-full md:w-[85%] md:h-[90%] bg-black opacity-70">
@@ -195,6 +198,10 @@ const SearchPage = () => {
         </div>
       )}
     </div>
+    <div className="relative bottom-[0] w-full">
+    <Footer/>
+    </div>
+    </>
   );
 };
 
