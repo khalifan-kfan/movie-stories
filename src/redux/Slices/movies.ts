@@ -1,14 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
-// import { searchMovies } from '../../api/index';
-
-// export const getMoviesSearchList = createAsyncThunk(
-//   'movies/searchMovies',
-//   async (searchTeam:string,page:number) => {
-//     const res = await searchMovies(searchTeam);
-//     return res;
-//   }
-// );
 
 export const moviesListSlice = createSlice({
   name: "movies",

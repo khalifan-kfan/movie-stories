@@ -4,6 +4,7 @@ import { getMovie } from "../../api/index";
 import ProgressBar from "../../components/progressIndicator";
 import PlaceHolder from "../../assets/clapperboard.png";
 import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState<any>({});
@@ -30,8 +31,9 @@ const MovieDetailsPage = () => {
   }, [movieId]);
 
   return (
-    <div className="flex flex-col items-center justify-start  min-h-screen bg-gray-900 text-white font-sans">
-      <Header />
+    <>
+    <Header />
+    <div className="flex flex-col items-center justify-start  min-h-[90vh] bg-gray-900 text-white font-sans">
       <div className="max-w-screen-xl px-10 lg:px-19 md:px-[7rem] transition-all w-full mt-9 mx-4 sm:mx-8 md:mx-auto">
         {error === "" ? (
           <div className="flex flex-col md:flex-row justify-between pb-6">
@@ -90,7 +92,12 @@ const MovieDetailsPage = () => {
           <ProgressBar />
         </div>
       )}
+      
     </div>
+    <div className="relative bottom-[0] w-full">
+    <Footer/>
+    </div>
+    </>
   );
 };
 
